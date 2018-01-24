@@ -19,8 +19,9 @@
     constructor() {
       this.onKeyup = this.onKeyup.bind(this);
       this.previous = this.previous.bind(this);
-      this.next = this.next.bind(this);
-      this.update = this.update.bind(this);
+	  this.next = this.next.bind(this);
+      this.showNext = this.showNext.bind(this);
+	  this.update = this.update.bind(this);
       DEMO.utils = Utils;
       this.$doc = $(document);
       this.$roller = $('.roller');
@@ -32,13 +33,34 @@
       this.$step.eq(this.active_index).addClass('active');
       this.$title.eq(this.active_index).addClass('active');
       this.observe();
+	  
+	  this.auto();
+	  
     }
 
+	auto()
+	{
+		var _this = this;
+		setInterval(function () {
+         	_this.showNext();
+		}, 3000);	 
+	}
+	
+	showNext()
+	{
+	   this.active_index++;
+       if(this.active_index > this.max)
+		  this.active_index = 0;
+	  
+	   return this.update();
+      
+	}
+	
     observe() {
       return this.$doc.on('keyup', this.onKeyup);
     }
 
-    onKeyup(e) {
+    onKeyup(e) {		
       var kc;
       kc = e.keyCode;
       if (kc === 38) {
