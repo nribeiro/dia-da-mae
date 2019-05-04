@@ -16,7 +16,7 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
-<video id="video" autoplay loop crossOrigin="anonymous" webkit-playsinline playsinline muted style="display:block">
+<video id="video" autoplay loop crossOrigin="anonymous" webkit-playsinline playsinline muted style="display:none">
 	<!--<source src="video/sintel.ogv" type="video/ogg">-->
 	<!--<source src="video/video.mp4" type="video/mp4;">-->
 </video>
@@ -123,7 +123,7 @@ function initialize()
 	let geometry1 = new THREE.PlaneBufferGeometry(3.1,2, 4,4);
 
 	let video = document.getElementById( 'video' );
-	video.src =  "video/" + videos[getRandomInt(0, videos.length)].toString() + ".mp4";
+	video.src =  "video/" + videos[getRandomInt(0, videos.length)];
 	video.play();
 	let texture = new THREE.VideoTexture( video );
 	texture.minFilter = THREE.LinearFilter;
