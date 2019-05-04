@@ -16,7 +16,7 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
-<video id="video" autoplay loop crossOrigin="anonymous" webkit-playsinline playsinline muted style="display:none">
+<video id="video" autoplay loop crossOrigin="anonymous" webkit-playsinline playsinline muted style="display:block">
 	<!--<source src="video/sintel.ogv" type="video/ogg">-->
 	<!--<source src="video/video.mp4" type="video/mp4;">-->
 </video>
@@ -37,7 +37,7 @@ var markerRoot1;
 var mesh1;
 
 var videos = ["video1.mp4", "video2.mp4", "video3.mp4"];
-shuffle(videos);
+//shuffle(videos);
 
 initialize();
 animate();
